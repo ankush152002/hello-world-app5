@@ -1,25 +1,37 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>System Monitoring Project With CI/CD Pipeline</title>
+    <title>SERVER RESOURCE UTILIZATION DASHBOARD</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;  /* Sets a clean font for the page */
+            padding: 20px;  /* Adds padding around the body */
+            background-color: #f9f9f9;  /* Light background color for better contrast */
+        }
+        .container {
+            text-align: center;  /* Centers all content in the container */
+        }
         .plotly-graph-div {
             margin: auto;
             width: 50%;
             background-color: rgba(151, 128, 128, 0.688);
             padding: 20px;
+            border-radius: 8px;  /* Adds rounded corners to the graph divs */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Adds a subtle shadow effect */
         }
         .alert {
             color: red;
             font-weight: bold;
         }
+        h1 {
+            margin-bottom: 20px;  /* Adds space below the title */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>System Monitoring Project With CI/CD Pipeline</h1>
+        <h1>SERVER RESOURCE UTILIZATION DASHBOARD</h1>
         <div id="cpu-gauge" class="plotly-graph-div"></div>
         <div id="mem-gauge" class="plotly-graph-div"></div>
         <div id="message" class="alert"></div>
@@ -97,7 +109,7 @@
         window.onload = function() {
             // Fetch metrics every 5 seconds
             fetchMetrics();
-            setInterval(fetchMetrics, 1000);
+            setInterval(fetchMetrics, 5000);  // Fetch metrics every 5 seconds
         }
     </script>
 </body>

@@ -1,11 +1,15 @@
-# Dockerfile
-FROM node:14
+FROM python:3.9-buster
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+COPY requirements.txt .
+
+RUN pip3 install --no-cache-dir -r requirements.txt
+
 COPY . .
 
+ENV FLASK_RUN_HOST=0.0.0.0
+
 EXPOSE 3004
-CMD [ "node", "app.js" ]
+
+CMD ["flask", "run"]
